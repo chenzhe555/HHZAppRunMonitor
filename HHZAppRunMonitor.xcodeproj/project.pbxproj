@@ -1,0 +1,451 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		43EA8CC4A7D2A0B141F2D88A /* libPods-HHZAppRunMonitor.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA70763ABF00D98F88032C7 /* libPods-HHZAppRunMonitor.a */; };
+		6E2348A51F3AD71D00143054 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348A41F3AD71D00143054 /* main.m */; };
+		6E2348A81F3AD71D00143054 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348A71F3AD71D00143054 /* AppDelegate.m */; };
+		6E2348AB1F3AD71D00143054 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348AA1F3AD71D00143054 /* ViewController.m */; };
+		6E2348AE1F3AD71D00143054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E2348AC1F3AD71D00143054 /* Main.storyboard */; };
+		6E2348B01F3AD71D00143054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E2348AF1F3AD71D00143054 /* Assets.xcassets */; };
+		6E2348B31F3AD71D00143054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E2348B11F3AD71D00143054 /* LaunchScreen.storyboard */; };
+		6E2348BE1F3AD7A700143054 /* HHZAppRunMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348BD1F3AD7A700143054 /* HHZAppRunMonitor.m */; };
+		6E2348C11F3ADA2500143054 /* HHZFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348C01F3ADA2500143054 /* HHZFPSLabel.m */; };
+		6E2348CA1F3AE5F500143054 /* HHZCPULabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348C91F3AE5F500143054 /* HHZCPULabel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6E2348A01F3AD71D00143054 /* HHZAppRunMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHZAppRunMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E2348A41F3AD71D00143054 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6E2348A61F3AD71D00143054 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6E2348A71F3AD71D00143054 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6E2348A91F3AD71D00143054 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6E2348AA1F3AD71D00143054 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6E2348AD1F3AD71D00143054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6E2348AF1F3AD71D00143054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E2348B21F3AD71D00143054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6E2348B41F3AD71D00143054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E2348BC1F3AD7A700143054 /* HHZAppRunMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHZAppRunMonitor.h; sourceTree = "<group>"; };
+		6E2348BD1F3AD7A700143054 /* HHZAppRunMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHZAppRunMonitor.m; sourceTree = "<group>"; };
+		6E2348BF1F3ADA2500143054 /* HHZFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHZFPSLabel.h; sourceTree = "<group>"; };
+		6E2348C01F3ADA2500143054 /* HHZFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHZFPSLabel.m; sourceTree = "<group>"; };
+		6E2348C81F3AE5F500143054 /* HHZCPULabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHZCPULabel.h; sourceTree = "<group>"; };
+		6E2348C91F3AE5F500143054 /* HHZCPULabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHZCPULabel.m; sourceTree = "<group>"; };
+		8DA70763ABF00D98F88032C7 /* libPods-HHZAppRunMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HHZAppRunMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		971D82455734FF2A01780ADE /* Pods-HHZAppRunMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHZAppRunMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HHZAppRunMonitor/Pods-HHZAppRunMonitor.debug.xcconfig"; sourceTree = "<group>"; };
+		9F5EA6ADA2A8D3897A7E73A1 /* Pods-HHZAppRunMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHZAppRunMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-HHZAppRunMonitor/Pods-HHZAppRunMonitor.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E23489D1F3AD71D00143054 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43EA8CC4A7D2A0B141F2D88A /* libPods-HHZAppRunMonitor.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E2348971F3AD71D00143054 = {
+			isa = PBXGroup;
+			children = (
+				6E2348A21F3AD71D00143054 /* HHZAppRunMonitor */,
+				6E2348A11F3AD71D00143054 /* Products */,
+				C33C67BD48ADCE477E678E85 /* Pods */,
+				F1A443CB420ABBC13DE3B930 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6E2348A11F3AD71D00143054 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E2348A01F3AD71D00143054 /* HHZAppRunMonitor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E2348A21F3AD71D00143054 /* HHZAppRunMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				6E2348BA1F3AD77000143054 /* classes */,
+				6E2348A61F3AD71D00143054 /* AppDelegate.h */,
+				6E2348A71F3AD71D00143054 /* AppDelegate.m */,
+				6E2348A91F3AD71D00143054 /* ViewController.h */,
+				6E2348AA1F3AD71D00143054 /* ViewController.m */,
+				6E2348AC1F3AD71D00143054 /* Main.storyboard */,
+				6E2348AF1F3AD71D00143054 /* Assets.xcassets */,
+				6E2348B11F3AD71D00143054 /* LaunchScreen.storyboard */,
+				6E2348B41F3AD71D00143054 /* Info.plist */,
+				6E2348A31F3AD71D00143054 /* Supporting Files */,
+			);
+			path = HHZAppRunMonitor;
+			sourceTree = "<group>";
+		};
+		6E2348A31F3AD71D00143054 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E2348A41F3AD71D00143054 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6E2348BA1F3AD77000143054 /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				6E2348C61F3AE5D400143054 /* cpu */,
+				6E2348C71F3AE5D400143054 /* memory */,
+				6E2348BB1F3AD77000143054 /* fps */,
+				6E2348BC1F3AD7A700143054 /* HHZAppRunMonitor.h */,
+				6E2348BD1F3AD7A700143054 /* HHZAppRunMonitor.m */,
+			);
+			path = classes;
+			sourceTree = "<group>";
+		};
+		6E2348BB1F3AD77000143054 /* fps */ = {
+			isa = PBXGroup;
+			children = (
+				6E2348BF1F3ADA2500143054 /* HHZFPSLabel.h */,
+				6E2348C01F3ADA2500143054 /* HHZFPSLabel.m */,
+			);
+			path = fps;
+			sourceTree = "<group>";
+		};
+		6E2348C61F3AE5D400143054 /* cpu */ = {
+			isa = PBXGroup;
+			children = (
+				6E2348C81F3AE5F500143054 /* HHZCPULabel.h */,
+				6E2348C91F3AE5F500143054 /* HHZCPULabel.m */,
+			);
+			path = cpu;
+			sourceTree = "<group>";
+		};
+		6E2348C71F3AE5D400143054 /* memory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = memory;
+			sourceTree = "<group>";
+		};
+		C33C67BD48ADCE477E678E85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				971D82455734FF2A01780ADE /* Pods-HHZAppRunMonitor.debug.xcconfig */,
+				9F5EA6ADA2A8D3897A7E73A1 /* Pods-HHZAppRunMonitor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F1A443CB420ABBC13DE3B930 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DA70763ABF00D98F88032C7 /* libPods-HHZAppRunMonitor.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E23489F1F3AD71D00143054 /* HHZAppRunMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E2348B71F3AD71D00143054 /* Build configuration list for PBXNativeTarget "HHZAppRunMonitor" */;
+			buildPhases = (
+				9D054D0A626B811E7CAD3887 /* [CP] Check Pods Manifest.lock */,
+				6E23489C1F3AD71D00143054 /* Sources */,
+				6E23489D1F3AD71D00143054 /* Frameworks */,
+				6E23489E1F3AD71D00143054 /* Resources */,
+				6652955191C44AC4D990552D /* [CP] Embed Pods Frameworks */,
+				D9429787D8C0B5CA9ACEDE1A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HHZAppRunMonitor;
+			productName = HHZAppRunMonitor;
+			productReference = 6E2348A01F3AD71D00143054 /* HHZAppRunMonitor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E2348981F3AD71D00143054 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "陈哲是个好孩子";
+				TargetAttributes = {
+					6E23489F1F3AD71D00143054 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6E23489B1F3AD71D00143054 /* Build configuration list for PBXProject "HHZAppRunMonitor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E2348971F3AD71D00143054;
+			productRefGroup = 6E2348A11F3AD71D00143054 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E23489F1F3AD71D00143054 /* HHZAppRunMonitor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E23489E1F3AD71D00143054 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E2348B31F3AD71D00143054 /* LaunchScreen.storyboard in Resources */,
+				6E2348B01F3AD71D00143054 /* Assets.xcassets in Resources */,
+				6E2348AE1F3AD71D00143054 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6652955191C44AC4D990552D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HHZAppRunMonitor/Pods-HHZAppRunMonitor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D054D0A626B811E7CAD3887 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HHZAppRunMonitor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9429787D8C0B5CA9ACEDE1A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HHZAppRunMonitor/Pods-HHZAppRunMonitor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E23489C1F3AD71D00143054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E2348AB1F3AD71D00143054 /* ViewController.m in Sources */,
+				6E2348C11F3ADA2500143054 /* HHZFPSLabel.m in Sources */,
+				6E2348BE1F3AD7A700143054 /* HHZAppRunMonitor.m in Sources */,
+				6E2348A81F3AD71D00143054 /* AppDelegate.m in Sources */,
+				6E2348CA1F3AE5F500143054 /* HHZCPULabel.m in Sources */,
+				6E2348A51F3AD71D00143054 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6E2348AC1F3AD71D00143054 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E2348AD1F3AD71D00143054 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6E2348B11F3AD71D00143054 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E2348B21F3AD71D00143054 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E2348B51F3AD71D00143054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6E2348B61F3AD71D00143054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E2348B81F3AD71D00143054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 971D82455734FF2A01780ADE /* Pods-HHZAppRunMonitor.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HHZAppRunMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chenzhe.HHZAppRunMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6E2348B91F3AD71D00143054 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F5EA6ADA2A8D3897A7E73A1 /* Pods-HHZAppRunMonitor.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HHZAppRunMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chenzhe.HHZAppRunMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E23489B1F3AD71D00143054 /* Build configuration list for PBXProject "HHZAppRunMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E2348B51F3AD71D00143054 /* Debug */,
+				6E2348B61F3AD71D00143054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E2348B71F3AD71D00143054 /* Build configuration list for PBXNativeTarget "HHZAppRunMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E2348B81F3AD71D00143054 /* Debug */,
+				6E2348B91F3AD71D00143054 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E2348981F3AD71D00143054 /* Project object */;
+}
