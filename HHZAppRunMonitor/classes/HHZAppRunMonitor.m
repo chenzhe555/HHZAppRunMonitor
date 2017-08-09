@@ -10,14 +10,18 @@
 #import <HHZCategory/NSTimer+HHZCategory.h>
 #import "HHZFPSLabel.h"
 #import "HHZCPULabel.h"
+#import "HHZMemoryLabel.h"
 
-#define HHZAppRunMonitorWidth 150
+//整体宽度
+#define HHZAppRunMonitorWidth 160
+//每个Item高度
 #define HHZAppRunMonitorItemHeight 44
 
 @interface HHZAppRunMonitor ()
 @property (nonatomic, strong) NSArray * displayTypes;
 @property (nonatomic, strong) HHZFPSLabel * fpsLabel;
 @property (nonatomic, strong) HHZCPULabel * cpuLabel;
+@property (nonatomic, strong) HHZMemoryLabel * memoryLabel;
 
 #pragma mark CADisplayLink和NSTimer结合使用，显示信息
 @property (nonatomic, strong) CADisplayLink * displayLink;
@@ -43,7 +47,7 @@
 #pragma mark 初始化参数以及界面
 -(void)initialData
 {
-    _displayTypes = @[@(HHZAppRunMonitorDisplayTypeFPS),@(HHZAppRunMonitorDisplayTypeCPU)];
+    _displayTypes = @[@(HHZAppRunMonitorDisplayTypeFPS),@(HHZAppRunMonitorDisplayTypeCPU),@(HHZAppRunMonitorDisplayTypeMemory)];
     [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(showFront) userInfo:nil repeats:NO];
     
     [self createDisplayLink];
@@ -54,6 +58,7 @@
 -(void)showFront
 {
     [[self gainMainWindow] addSubview:self];
+    [self addButtonOnstatusBar];
 }
 
 -(UIWindow *)gainMainWindow
@@ -78,6 +83,28 @@
                                              selector: @selector(fps_UIApplicationWillResignActiveNotification)
                                                  name: UIApplicationWillResignActiveNotification
                                                object: nil];
+}
+
+-(void)addButtonOnstatusBar
+{
+    UIView * foregroundView = [[[UIApplication sharedApplication] valueForKeyPath:@"statusBar"]valueForKeyPath:@"foregroundView"];
+    
+    if (foregroundView)
+    {
+        for (UIView * vie in foregroundView.subviews)
+        {
+            if ([vie isKindOfClass:NSClassFromString(@"UIStatusBarTimeItemView")])
+            {
+                UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                [btn setTitle:@"关闭" forState:UIControlStateNormal];
+                [btn setTitleColor:[UIColor colorWithRed:0/255.0 green:166/255.0 blue:228/255.0 alpha:1] forState:UIControlStateNormal];
+                btn.frame = CGRectMake(vie.frame.origin.x - 30 - 5, 0, 30, 20);
+                btn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
+                [btn addTarget:self action:@selector(clickShowButton:) forControlEvents:UIControlEventTouchUpInside];
+                [foregroundView addSubview:btn];
+            }
+        }
+    }
 }
 
 
@@ -105,11 +132,19 @@
 -(void)runTimer
 {
     [_cpuLabel modifyCPU];
+    [_memoryLabel modifyMemory];
 }
 
 #pragma mark 创建需要显示的样式表
+-(void)configShowTypes:(NSArray *)types
+{
+    _displayTypes = types;
+}
+
 -(void)generateMonitor
 {
+    if (_displayTypes.count == 0) return;
+    
     HHZAppRunMonitorDisplayType type = HHZAppRunMonitorDisplayTypeFPS;
     
     CGFloat tmpY = 0;
@@ -128,9 +163,44 @@
             [self addSubview:_cpuLabel];
             tmpY += HHZAppRunMonitorItemHeight;
         }
+        else if (type == HHZAppRunMonitorDisplayTypeMemory)
+        {
+            _memoryLabel = [[HHZMemoryLabel alloc] initWithFrame:CGRectMake(0, tmpY, self.bounds.size.width, HHZAppRunMonitorItemHeight)];
+            [self addSubview:_memoryLabel];
+            tmpY += HHZAppRunMonitorItemHeight;
+        }
+    }
+    self.frame = CGRectMake([self gainMainWindow].bounds.size.width - HHZAppRunMonitorWidth, ([self gainMainWindow].bounds.size.height - tmpY)/2, HHZAppRunMonitorWidth, tmpY);
+}
+
+#pragma mark 顶部按钮点击事件
+-(void)clickShowButton:(UIButton *)btn
+{
+    if ([btn.titleLabel.text isEqualToString:@"关闭"])
+    {
+        [btn setTitle:@"打开" forState:UIControlStateNormal];
+        [self modifyMonitorStatus:NO];
+    }
+    else
+    {
+        [btn setTitle:@"关闭" forState:UIControlStateNormal];
+        [self modifyMonitorStatus:YES];
     }
 }
 
+-(void)modifyMonitorStatus:(BOOL)isShow
+{
+    self.hidden = !isShow;
+}
+
+#pragma mark 触摸事件
+-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesMoved:touches withEvent:event];
+    UITouch * touch = [touches anyObject];
+    CGPoint point = [touch locationInView:[self gainMainWindow]];
+    self.center = point;
+}
 
 #pragma mark App处于前后台通知事件
 -(void)fps_UIApplicationDidBecomeActiveNotification

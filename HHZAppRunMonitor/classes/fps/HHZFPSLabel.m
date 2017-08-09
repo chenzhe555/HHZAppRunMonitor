@@ -10,6 +10,7 @@
 
 @interface HHZFPSLabel ()
 @property (nonatomic, assign) NSTimeInterval lastTime;
+//每秒渲染的界面数量
 @property (nonatomic, assign) NSUInteger count;
 
 @property (nonatomic, strong) UILabel * titleLabel;
@@ -18,7 +19,7 @@
 
 @implementation HHZFPSLabel
 
-- (instancetype)initWithFrame:(CGRect)frame
+-(instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self)
@@ -52,9 +53,10 @@
     
     _count++;
     NSTimeInterval interval = link.timestamp - _lastTime;
+    //时间间隙大于1秒才进行计算FPS
     if (interval < 1) return;
     _lastTime = link.timestamp;
-    float fps = _count / interval;
+    float fps = _count/interval;
     _count = 0;
     
     _fpsLabel.text = [NSString stringWithFormat:@"%d",(int)round(fps)];

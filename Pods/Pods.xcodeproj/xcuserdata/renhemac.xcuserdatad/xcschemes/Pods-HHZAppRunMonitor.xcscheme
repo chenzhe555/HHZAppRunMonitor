@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7B2A639F37A45F9B8F0B1CCFAE4F3749'
+               BlueprintIdentifier = '6A576F3F77C1169C3ECE815368C3498E'
                BlueprintName = 'Pods-HHZAppRunMonitor'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-HHZAppRunMonitor.a'>

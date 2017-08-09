@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <HHZCategory/NSObject+HHZCategory.h>
 
 @interface ViewController ()
 
@@ -18,6 +19,35 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor grayColor];
+    
+    UIWindow * window = [UIApplication sharedApplication].keyWindow;
+    if (!window)
+    {
+        window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    }
+    
+    NSArray *children = [[[[UIApplication sharedApplication] valueForKeyPath:@"statusBar"]valueForKeyPath:@"foregroundView"]subviews];
+    for (int i = 0; i < [children count]; i ++) {
+        UIView *  vv = children[i];
+        
+        NSLog(@"输出:%@",vv);
+        
+    }
+}
+
+-(void)findSubViews:(UIView *)view
+{
+    for (UIView * vie in view.subviews)
+    {
+        if (vie.subviews.count > 0)
+        {
+            [self findSubViews:vie];
+        }
+        else
+        {
+            NSLog(@"找到一个:\n%@\n\n",vie);
+        }
+    }
 }
 
 

@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>HHZUtils.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-HHZAppRunMonitor.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7B2A639F37A45F9B8F0B1CCFAE4F3749</key>
+		<key>6A576F3F77C1169C3ECE815368C3498E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B14067D386E5B02DD4E0B4123CB28A5B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FED78251DCC9D03E6C16B319C954F8D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

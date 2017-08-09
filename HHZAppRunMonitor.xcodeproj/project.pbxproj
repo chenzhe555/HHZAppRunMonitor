@@ -17,6 +17,7 @@
 		6E2348BE1F3AD7A700143054 /* HHZAppRunMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348BD1F3AD7A700143054 /* HHZAppRunMonitor.m */; };
 		6E2348C11F3ADA2500143054 /* HHZFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348C01F3ADA2500143054 /* HHZFPSLabel.m */; };
 		6E2348CA1F3AE5F500143054 /* HHZCPULabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348C91F3AE5F500143054 /* HHZCPULabel.m */; };
+		6E2348CD1F3AF7B300143054 /* HHZMemoryLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2348CC1F3AF7B300143054 /* HHZMemoryLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		6E2348C01F3ADA2500143054 /* HHZFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHZFPSLabel.m; sourceTree = "<group>"; };
 		6E2348C81F3AE5F500143054 /* HHZCPULabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHZCPULabel.h; sourceTree = "<group>"; };
 		6E2348C91F3AE5F500143054 /* HHZCPULabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHZCPULabel.m; sourceTree = "<group>"; };
+		6E2348CB1F3AF7B300143054 /* HHZMemoryLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHZMemoryLabel.h; sourceTree = "<group>"; };
+		6E2348CC1F3AF7B300143054 /* HHZMemoryLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHZMemoryLabel.m; sourceTree = "<group>"; };
 		8DA70763ABF00D98F88032C7 /* libPods-HHZAppRunMonitor.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HHZAppRunMonitor.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		971D82455734FF2A01780ADE /* Pods-HHZAppRunMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHZAppRunMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HHZAppRunMonitor/Pods-HHZAppRunMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		9F5EA6ADA2A8D3897A7E73A1 /* Pods-HHZAppRunMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HHZAppRunMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-HHZAppRunMonitor/Pods-HHZAppRunMonitor.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 		6E2348C71F3AE5D400143054 /* memory */ = {
 			isa = PBXGroup;
 			children = (
+				6E2348CB1F3AF7B300143054 /* HHZMemoryLabel.h */,
+				6E2348CC1F3AF7B300143054 /* HHZMemoryLabel.m */,
 			);
 			path = memory;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				6E2348C11F3ADA2500143054 /* HHZFPSLabel.m in Sources */,
 				6E2348BE1F3AD7A700143054 /* HHZAppRunMonitor.m in Sources */,
 				6E2348A81F3AD71D00143054 /* AppDelegate.m in Sources */,
+				6E2348CD1F3AF7B300143054 /* HHZMemoryLabel.m in Sources */,
 				6E2348CA1F3AE5F500143054 /* HHZCPULabel.m in Sources */,
 				6E2348A51F3AD71D00143054 /* main.m in Sources */,
 			);

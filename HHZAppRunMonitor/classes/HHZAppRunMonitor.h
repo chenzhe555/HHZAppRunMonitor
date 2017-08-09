@@ -10,14 +10,16 @@
 
 typedef NS_ENUM(NSInteger,HHZAppRunMonitorDisplayType) {
     HHZAppRunMonitorDisplayTypeFPS = 10010,
-    HHZAppRunMonitorDisplayTypeCPU
+    HHZAppRunMonitorDisplayTypeCPU,
+    HHZAppRunMonitorDisplayTypeMemory
 };
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HHZAppRunMonitor : UIView
+#pragma mark required
 /**
- *  获取实例
+ *  获取单例
  */
 +(instancetype)shareManager;
 
@@ -25,6 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  生成并显示监视器
  */
 -(void)generateMonitor;
+
+#pragma mark optional
+/**
+ *  配置自己需要显示的几种类型，在generateMonitor之前执行
+ */
+-(void)configShowTypes:(NSArray *)types;
 @end
 
 NS_ASSUME_NONNULL_END

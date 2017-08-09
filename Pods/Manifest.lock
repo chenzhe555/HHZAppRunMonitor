@@ -6,68 +6,22 @@ PODS:
     - HHZCategory/HHZCategory/uikit (= 0.0.2.4)
   - HHZCategory/HHZCategory/foundation (0.0.2.4)
   - HHZCategory/HHZCategory/uikit (0.0.2.4)
-  - HHZUtils (0.0.3.1):
-    - HHZUtils/HHZUtils (= 0.0.3.1)
-  - HHZUtils/HHZUtils (0.0.3.1):
-    - HHZUtils/HHZUtils/application (= 0.0.3.1)
-    - HHZUtils/HHZUtils/archive (= 0.0.3.1)
-    - HHZUtils/HHZUtils/calculate (= 0.0.3.1)
-    - HHZUtils/HHZUtils/cookie (= 0.0.3.1)
-    - HHZUtils/HHZUtils/date (= 0.0.3.1)
-    - HHZUtils/HHZUtils/device (= 0.0.3.1)
-    - HHZUtils/HHZUtils/encryption (= 0.0.3.1)
-    - HHZUtils/HHZUtils/exception (= 0.0.3.1)
-    - HHZUtils/HHZUtils/file (= 0.0.3.1)
-    - HHZUtils/HHZUtils/http (= 0.0.3.1)
-    - HHZUtils/HHZUtils/json (= 0.0.3.1)
-    - HHZUtils/HHZUtils/kit (= 0.0.3.1)
-    - HHZUtils/HHZUtils/numerical (= 0.0.3.1)
-    - HHZUtils/HHZUtils/plist (= 0.0.3.1)
-    - HHZUtils/HHZUtils/regular (= 0.0.3.1)
-    - HHZUtils/HHZUtils/sectionIndex (= 0.0.3.1)
-    - HHZUtils/HHZUtils/system (= 0.0.3.1)
-  - HHZUtils/HHZUtils/application (0.0.3.1)
-  - HHZUtils/HHZUtils/archive (0.0.3.1)
-  - HHZUtils/HHZUtils/calculate (0.0.3.1)
-  - HHZUtils/HHZUtils/cookie (0.0.3.1)
-  - HHZUtils/HHZUtils/date (0.0.3.1)
-  - HHZUtils/HHZUtils/device (0.0.3.1)
-  - HHZUtils/HHZUtils/encryption (0.0.3.1):
-    - HHZUtils/HHZUtils/encryption/GTMBase64 (= 0.0.3.1)
-  - HHZUtils/HHZUtils/encryption/GTMBase64 (0.0.3.1)
-  - HHZUtils/HHZUtils/exception (0.0.3.1)
-  - HHZUtils/HHZUtils/file (0.0.3.1)
-  - HHZUtils/HHZUtils/http (0.0.3.1)
-  - HHZUtils/HHZUtils/json (0.0.3.1)
-  - HHZUtils/HHZUtils/kit (0.0.3.1)
-  - HHZUtils/HHZUtils/numerical (0.0.3.1)
-  - HHZUtils/HHZUtils/plist (0.0.3.1)
-  - HHZUtils/HHZUtils/regular (0.0.3.1)
-  - HHZUtils/HHZUtils/sectionIndex (0.0.3.1)
-  - HHZUtils/HHZUtils/system (0.0.3.1)
 
 DEPENDENCIES:
   - HHZCategory (from `https://github.com/chenzhe555/HHZCategory.git`)
-  - HHZUtils (from `https://github.com/chenzhe555/HHZUtils.git`)
 
 EXTERNAL SOURCES:
   HHZCategory:
     :git: https://github.com/chenzhe555/HHZCategory.git
-  HHZUtils:
-    :git: https://github.com/chenzhe555/HHZUtils.git
 
 CHECKOUT OPTIONS:
   HHZCategory:
     :commit: 87ec4ec67f76f8fe7c491def97a3a1ecbbee1701
     :git: https://github.com/chenzhe555/HHZCategory.git
-  HHZUtils:
-    :commit: 15585b8205a5982b57b5543dab09dd27c998b177
-    :git: https://github.com/chenzhe555/HHZUtils.git
 
 SPEC CHECKSUMS:
   HHZCategory: b8daeffa2c5eba1be7329fdb03804f04e32ea5da
-  HHZUtils: 8caa2bd6e807c196ff90d4406dca9ab977e7da3a
 
-PODFILE CHECKSUM: 4f984d54b577e1ce0a59fa3b115c09d78a488489
+PODFILE CHECKSUM: 339933555e3ebf69b4103148cd027472d49ddbdb
 
 COCOAPODS: 1.3.0.beta.3
