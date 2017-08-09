@@ -15,7 +15,7 @@
 //整体宽度
 #define HHZAppRunMonitorWidth 160
 //每个Item高度
-#define HHZAppRunMonitorItemHeight 44
+#define HHZAppRunMonitorItemHeight 24
 
 @interface HHZAppRunMonitor ()
 @property (nonatomic, strong) NSArray * displayTypes;
@@ -97,7 +97,7 @@
             {
                 UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
                 [btn setTitle:@"关闭" forState:UIControlStateNormal];
-                [btn setTitleColor:[UIColor colorWithRed:0/255.0 green:166/255.0 blue:228/255.0 alpha:1] forState:UIControlStateNormal];
+                [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                 btn.frame = CGRectMake(vie.frame.origin.x - 30 - 5, 0, 30, 20);
                 btn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
                 [btn addTarget:self action:@selector(clickShowButton:) forControlEvents:UIControlEventTouchUpInside];
