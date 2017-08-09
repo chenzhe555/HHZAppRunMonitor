@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "HHZAppRunMonitor"
-  s.version      = "0.0.1.2"
+  s.version      = "0.0.1.3"
   s.summary      = "HHZAppRunMonitor"
 
   # This description is used to generate tags and improve search results.
@@ -92,8 +92,10 @@ Pod::Spec.new do |s|
   #s.source_files  = "Classes", "Classes/**/*.{h,m}"
   #s.exclude_files = "Classes/Exclude"
 
+  s.source_files = 'HHZAppRunMonitor/classes/HHZAppRunMonitor.{h,m}'
+
   s.subspec 'HHZAppRunMonitor' do |one|
-      one.source_files = 'HHZAppRunMonitor/classes/HHZAppRunMonitor.{h,m}'
+      
 
       one.subspec 'cpu' do |three|
         three.source_files = 'HHZAppRunMonitor/classes/cpu/*.{h,m}'
@@ -101,6 +103,10 @@ Pod::Spec.new do |s|
 
       one.subspec 'fps' do |three|
         three.source_files = 'HHZAppRunMonitor/classes/fps/*.{h,m}'
+      end
+
+      one.subspec 'memory' do |three|
+        three.source_files = 'HHZAppRunMonitor/classes/memory/*.{h,m}'
       end
   end
 
