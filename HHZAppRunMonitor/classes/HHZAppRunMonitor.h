@@ -28,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(void)generateMonitor;
 
+
+
 #pragma mark optional
 /**
  *  配置自己需要显示的几种类型，在generateMonitor之前执行
