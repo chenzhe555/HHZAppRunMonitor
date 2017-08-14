@@ -22,6 +22,7 @@
 @property (nonatomic, strong) HHZFPSLabel * fpsLabel;
 @property (nonatomic, strong) HHZCPULabel * cpuLabel;
 @property (nonatomic, strong) HHZMemoryLabel * memoryLabel;
+@property (nonatomic, assign) BOOL firstShowState;
 
 #pragma mark CADisplayLink和NSTimer结合使用，显示信息
 @property (nonatomic, strong) CADisplayLink * displayLink;
@@ -96,7 +97,14 @@
             if ([vie isKindOfClass:NSClassFromString(@"UIStatusBarTimeItemView")])
             {
                 UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-                [btn setTitle:@"关闭" forState:UIControlStateNormal];
+                if (_firstShowState)
+                {
+                    [btn setTitle:@"关闭" forState:UIControlStateNormal];
+                }
+                else
+                {
+                    [btn setTitle:@"打开" forState:UIControlStateNormal];
+                }
                 [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
                 btn.frame = CGRectMake(vie.frame.origin.x - 30 - 5, 0, 30, 20);
                 btn.titleLabel.font = [UIFont systemFontOfSize:13.0f];
@@ -141,7 +149,7 @@
     _displayTypes = types;
 }
 
--(void)generateMonitor
+-(void)generateMonitorShow:(BOOL)isShow
 {
     if (_displayTypes.count == 0) return;
     
@@ -171,6 +179,9 @@
         }
     }
     self.frame = CGRectMake([self gainMainWindow].bounds.size.width - HHZAppRunMonitorWidth, ([self gainMainWindow].bounds.size.height - tmpY)/2, HHZAppRunMonitorWidth, tmpY);
+    
+    _firstShowState = isShow;
+    self.hidden = !_firstShowState;
 }
 
 #pragma mark 顶部按钮点击事件

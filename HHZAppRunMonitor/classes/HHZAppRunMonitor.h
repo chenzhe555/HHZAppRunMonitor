@@ -24,9 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)shareManager;
 
 /**
- *  生成并显示监视器
+ *  生成并显示监视器,YES代表显示，NO代表暂时不显示
  */
--(void)generateMonitor;
+-(void)generateMonitorShow:(BOOL)isShow;
 
 
 
