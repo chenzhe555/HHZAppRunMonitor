@@ -18,13 +18,13 @@ CGFloat colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length
     return hexComponent / 255.0;
 }
 
-@implementation UIColor (HHZUtils_Hex)
+@implementation UIColor (HHZ_Hex)
 
-+(UIColor *)colorWithHex_hhz:(UInt32)hex
++(UIColor *)hhz_colorWithHex:(UInt32)hex
 {
-    return [UIColor colorWithHex_hhz:hex andAlpha:1];
+    return [UIColor hhz_colorWithHex:hex andAlpha:1];
 }
-+(UIColor *)colorWithHex_hhz:(UInt32)hex andAlpha:(CGFloat)alpha
++(UIColor *)hhz_colorWithHex:(UInt32)hex andAlpha:(CGFloat)alpha
 {
     return [UIColor colorWithRed:((hex >> 16) & 0xFF)/255.0
                            green:((hex >> 8) & 0xFF)/255.0
@@ -32,7 +32,7 @@ CGFloat colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length
                            alpha:alpha];
 }
 
-+(UIColor *)colorWithHexString_hhz:(NSString *)hexString
++(UIColor *)hhz_colorWithHexString:(NSString *)hexString
 {
     CGFloat alpha, red, blue, green;
     
@@ -72,7 +72,7 @@ CGFloat colorComponentFrom(NSString *string, NSUInteger start, NSUInteger length
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
--(NSString *)HexString_hhz
+-(NSString *)hhz_HexString
 {
     UIColor* color = self;
     if (CGColorGetNumberOfComponents(color.CGColor) < 4)

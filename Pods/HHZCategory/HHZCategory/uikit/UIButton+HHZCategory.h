@@ -13,14 +13,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIButton (HHZUtils_SetAttribution)
+@interface UIButton (HHZ_Attribution)
 /**
  *  设置button文字(正常、选中)
  *
  *  @param normalTitle   正常情况下
  *  @param selectedTitle 选中情况下
  */
--(void)setNormalTitle_hhz:(nullable NSString *)normalTitle andSelectedTitle:(nullable NSString *)selectedTitle;
+-(void)hhz_setNormalTitle:(nullable NSString *)normalTitle andSelectedTitle:(nullable NSString *)selectedTitle;
 
 /**
  *  设置button的图片(正常、高亮、选中)
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param highImage     高亮情况下
  *  @param selectedImage 选中情况下
  */
--(void)setNormalImage_hhz:(nullable UIImage *)normalImage andHighlightImage:(nullable UIImage *)highImage andSelectedImage:(nullable UIImage *)selectedImage;
+-(void)hhz_setNormalImage:(nullable UIImage *)normalImage andHighlightImage:(nullable UIImage *)highImage andSelectedImage:(nullable UIImage *)selectedImage;
 
 /**
  *  设置button背景图片(正常、高亮、选中)
@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param highImage     高亮情况下
  *  @param selectedImage 选中情况下
  */
--(void)setNormalBackgroundImage_hhz:(nullable UIImage *)normalImage andHighlightBackgroundImage:(nullable UIImage *)highImage andSelectedBackgroundImage:(nullable UIImage *)selectedImage;
+-(void)hhz_setNormalBackgroundImage:(nullable UIImage *)normalImage andHighlightBackgroundImage:(nullable UIImage *)highImage andSelectedBackgroundImage:(nullable UIImage *)selectedImage;
 
 /**
  *  改变button的圆角度数
@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param radius
  */
--(void)changeCornerRadius_hhz:(CGFloat)radius;
+-(void)hhz_changeCornerRadius:(CGFloat)radius;
 @end
 
 

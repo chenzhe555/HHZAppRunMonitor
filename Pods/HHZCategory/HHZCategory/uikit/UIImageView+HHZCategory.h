@@ -12,14 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 添加点击事件
-@interface UIImageView (HHZUtils_AddTarget)
+@interface UIImageView (HHZ_AddTarget)
 /**
  *  给图片添加点击事件
  *
  *  @param target
  *  @param selector
  */
--(void)addTarget_hhz:(id)target andSelector:(SEL)selector;
+-(void)hhz_addTarget:(id)target andSelector:(SEL)selector;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,31 +10,9 @@
 
 #import <objc/runtime.h>
 
-@implementation NSObject (HHZUtils_CheckObj)
-
--(NSArray *)checkArray_hhz
-{
-    if (![self isKindOfClass:[NSArray class]])
-    {
-        return [NSArray array];
-    }
-    return (NSArray *)self;
-}
-
--(NSDictionary *)checkDictionary_hhz
-{
-    if (![self isKindOfClass:[NSDictionary class]])
-    {
-        return [NSDictionary dictionary];
-    }
-    return (NSDictionary *)self;
-}
-
-@end
-
 @implementation NSObject (HHZUtils_RunTime)
 
--(NSArray *)getPrivateApiMethod_hhz
+-(NSArray *)hhz_getPrivateApiMethod
 {
     //获取当前类名
     NSString * className = NSStringFromClass([self class]);
@@ -57,7 +35,7 @@
     return arr;
 }
 
--(NSArray *)getPrivateApiProperty_hhz
+-(NSArray *)hhz_getPrivateApiProperty
 {
     unsigned int propertyCount;
     //获取对象属性列表
@@ -75,7 +53,7 @@
     return arr;
 }
 
--(NSArray *)getPrivateApiPropertyAndPropertyType_hhz
+-(NSArray *)hhz_getPrivateApiPropertyAndPropertyType
 {
     unsigned int propertyCount;
     objc_property_t * properties = class_copyPropertyList([self class], &propertyCount);
@@ -219,7 +197,7 @@
 @end
 
 
-@implementation NSObject (HHZUtils_Archive)
+@implementation NSObject (HHZ_Archive)
 
 -(void)encode_hhz:(NSCoder *)encoder
 {
@@ -331,7 +309,7 @@
 
 static const int Block_Key;
 
-@implementation NSObject (HHZUtils_KVO)
+@implementation NSObject (HHZ_KVO)
 
 -(void)addObserverBlockForKeyPath_hhz:(NSString *)keyPath Block:(void (^)(__weak id _Nonnull, id _Nonnull, id _Nonnull, void * _Nonnull))block
 {

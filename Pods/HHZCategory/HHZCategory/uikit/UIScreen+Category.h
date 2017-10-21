@@ -17,14 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 
  */
-+(CGFloat)screenScale_hhz;
++(CGFloat)hhz_screenScale;
 
 /**
  *  获取屏幕Rect
  *
  *  @return Rect
  */
--(CGRect)screenBoundsWithOrientation_hhz:(UIInterfaceOrientation)orientation;
+-(CGRect)hhz_screenBoundsWithOrientation:(UIInterfaceOrientation)orientation;
 @end
 
 NS_ASSUME_NONNULL_END

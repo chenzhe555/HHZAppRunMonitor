@@ -12,14 +12,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 添加点击事件
-@interface UILabel (HHZUtils_AddTarget)
+@interface UILabel (HHZ_AddTarget)
 /**
  *  对UILabel添加事件
  *
  *  @param vc
  *  @param selector
  */
--(void)addTarget_hhz:(id)labelTarget andSelector:(SEL)selector;
+-(void)hhz_addTarget:(id)labelTarget andSelector:(SEL)selector;
 @end
 
 NS_ASSUME_NONNULL_END

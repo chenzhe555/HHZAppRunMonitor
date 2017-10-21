@@ -10,7 +10,7 @@
 
 @implementation UIScreen (HHZUtils_UIScreen)
 
-+(CGFloat)screenScale_hhz
++(CGFloat)hhz_screenScale
 {
     static CGFloat scale;
     static dispatch_once_t once_Token;
@@ -25,7 +25,7 @@
     return scale;
 }
 
--(CGRect)screenBoundsWithOrientation_hhz:(UIInterfaceOrientation)orientation
+-(CGRect)hhz_screenBoundsWithOrientation:(UIInterfaceOrientation)orientation
 {
     CGRect screenBound = [self bounds];
     

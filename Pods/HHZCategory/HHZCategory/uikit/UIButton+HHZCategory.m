@@ -8,8 +8,8 @@
 
 #import "UIButton+HHZCategory.h"
 
-@implementation UIButton (HHZUtils_SetAttribution)
--(void)setNormalTitle_hhz:(NSString *)normalTitle andSelectedTitle:(NSString *)selectedTitle
+@implementation UIButton (HHZ_Attribution)
+-(void)hhz_setNormalTitle:(NSString *)normalTitle andSelectedTitle:(NSString *)selectedTitle
 {
     if (normalTitle != nil)
     {
@@ -21,7 +21,7 @@
     }
 }
 
--(void)setNormalImage_hhz:(UIImage *)normalImage andHighlightImage:(UIImage *)highImage andSelectedImage:(UIImage *)selectedImage
+-(void)hhz_setNormalImage:(UIImage *)normalImage andHighlightImage:(UIImage *)highImage andSelectedImage:(UIImage *)selectedImage
 {
     if (normalImage != nil)
     {
@@ -38,7 +38,7 @@
     
 }
 
--(void)setNormalBackgroundImage_hhz:(UIImage *)normalImage andHighlightBackgroundImage:(UIImage *)highImage andSelectedBackgroundImage:(UIImage *)selectedImage
+-(void)hhz_setNormalBackgroundImage:(UIImage *)normalImage andHighlightBackgroundImage:(UIImage *)highImage andSelectedBackgroundImage:(UIImage *)selectedImage
 {
     if (normalImage != nil)
     {
@@ -54,7 +54,7 @@
     }
 }
 
--(void)changeCornerRadius_hhz:(CGFloat)radius
+-(void)hhz_changeCornerRadius:(CGFloat)radius
 {
     if (radius == 0)
     {

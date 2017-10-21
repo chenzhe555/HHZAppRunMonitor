@@ -11,15 +11,13 @@
 
 #pragma mark NSArray
 
-@implementation NSArray (HHZUtils_NSArray)
+@implementation NSArray (HHZ_Log)
 
 -(nullable NSString *)descriptionWithLocale:(id)locale
 {
-    if (!locale) return nil;
-    
-    NSMutableString * mutaStr = [NSMutableString stringWithString:@"(\n"];
+    NSMutableString * mutaStr = [NSMutableString stringWithString:[NSString stringWithFormat:@"\n %p (\n",self]];
     [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [mutaStr appendFormat:@"\t%@,\n", obj];
+        [mutaStr appendFormat:@"%lu(%@):\n\t%@\n", (unsigned long)idx,[obj class],obj];
     }];
     
     [mutaStr appendString:@")"];
@@ -27,7 +25,7 @@
     return mutaStr;
 }
 
--(id)objectMaybeNilAtIndex_hhz:(NSInteger)index
+-(id)hhz_objectAtIndex:(NSInteger)index
 {
     return (index >= 0 && index < self.count) ? self[index] : nil;
 }
@@ -35,30 +33,41 @@
 @end
 
 
+@implementation NSArray (HHZ_Check)
 
+-(instancetype)hhz_check
+{
+    if (![self isKindOfClass:[NSArray class]])
+    {
+        return [NSArray array];
+    }
+    return self;
+}
+
+@end
 
 
 
 
 #pragma mark NSMutableArray
 
-@implementation NSMutableArray (HHZUtils_NSMutableArray)
+@implementation NSMutableArray (HHZ_CRUD)
 
--(void)removeFirstObject_hhz
+-(void)hhz_removeFirstObject
 {
     if (self.count) {
         [self removeObjectAtIndex:0];
     }
 }
 
--(void)removeLastObject_hhz
+-(void)hhz_removeLastObject
 {
     if (self.count) {
         [self removeObjectAtIndex:self.count - 1];
     }
 }
 
--(void)insertArray_hhz:(NSArray *)arr atIndex:(NSUInteger)index
+-(void)hhz_insertArray:(NSArray *)arr atIndex:(NSUInteger)index
 {
     for (id obj in arr)
     {
@@ -66,7 +75,7 @@
     }
 }
 
--(void)reverseArray_hhz
+-(void)hhz_reverseArray
 {
     NSUInteger arrCount = self.count;
     NSUInteger arrMiddle = floor(arrCount / 2.0);

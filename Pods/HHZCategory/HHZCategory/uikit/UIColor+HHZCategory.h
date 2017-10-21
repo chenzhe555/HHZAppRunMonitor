@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 与16进制之间的转换
-@interface UIColor (HHZUtils_Hex)
+@interface UIColor (HHZ_Hex)
 
 /**
  *  通过16进制转换成UIColor对象
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return
  */
-+(nullable UIColor *)colorWithHex_hhz:(UInt32)hex;
++(nullable UIColor *)hhz_colorWithHex:(UInt32)hex;
 
 /**
  *  通过16进制和透明度转换成UIColor对象
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return
  */
-+(nullable UIColor *)colorWithHex_hhz:(UInt32)hex andAlpha:(CGFloat)alpha;
++(nullable UIColor *)hhz_colorWithHex:(UInt32)hex andAlpha:(CGFloat)alpha;
 
 /**
  *  通过16进制字符串转换成UIColor对象
@@ -40,13 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return
  */
-+(nullable UIColor *)colorWithHexString_hhz:(NSString *)hexString;
++(nullable UIColor *)hhz_colorWithHexString:(NSString *)hexString;
 /**
  *  通过RGB转换成16进制字符串
  *
  *  @return
  */
--(nullable NSString *)HexString_hhz;
+-(nullable NSString *)hhz_HexString;
 
 @end
 

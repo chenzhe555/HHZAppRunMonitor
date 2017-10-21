@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark ----------->NSArray
 
-@interface NSArray (HHZUtils_NSArray)
+@interface NSArray (HHZ_Log)
 
 /**
  *  由于服务器返回的打印出来不是UTF-8格式，不易查看，于是重写NSArray打印的description方法，打印的时候能很清楚看到中文字符
@@ -32,27 +32,32 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 对象/nil
  */
--(nullable id)objectMaybeNilAtIndex_hhz:(NSInteger)index;
+-(nullable id)hhz_objectAtIndex:(NSInteger)index;
 @end
 
 
 
-
+@interface NSArray (HHZ_Check)
+/**
+ *  多用于网络数据返回后的数组类型判断
+ */
+-(instancetype)hhz_check;
+@end
 
 
 
 #pragma mark ----------->NSMutableArray
 
-@interface NSMutableArray (HHZUtils_NSMutableArray)
+@interface NSMutableArray (HHZ_CRUD)
 /**
  *  移除数组中第一个元素
  */
--(void)removeFirstObject_hhz;
+-(void)hhz_removeFirstObject;
 
 /**
  *  移除数组中最后一个元素
  */
--(void)removeLastObject_hhz;
+-(void)hhz_removeLastObject;
 
 /**
  *  在数组中某个位置插入数组
@@ -60,12 +65,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param arr   要插入的数组
  *  @param index 索引值
  */
--(void)insertArray_hhz:(NSArray *)arr atIndex:(NSUInteger)index;
+-(void)hhz_insertArray:(NSArray *)arr atIndex:(NSUInteger)index;
 
 /**
  *  将数组倒序
  */
--(void)reverseArray_hhz;
+-(void)hhz_reverseArray;
 
 @end
 

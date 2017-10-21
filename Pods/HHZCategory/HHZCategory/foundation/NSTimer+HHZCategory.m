@@ -38,7 +38,7 @@
     [self setFireDate:[NSDate dateWithTimeIntervalSinceNow:interval]];
 }
 
-+(NSTimer *)scheduledTimerWithTimeInterval_hhz:(NSTimeInterval)interval repeats:(BOOL)repeats Block:(void (^)(NSTimer * _Nonnull))block
++(NSTimer *)hhz_scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats Block:(void (^)(NSTimer * _Nonnull))block
 {
     return [NSTimer scheduledTimerWithTimeInterval:interval target:self selector:@selector(hhz_callbackBlock:) userInfo:[block copy] repeats:repeats];
 }

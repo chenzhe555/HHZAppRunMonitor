@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSNumber (HHZUtils_AddMethod)
+@interface NSNumber (HHZ_MessageForward)
 
 @end
 

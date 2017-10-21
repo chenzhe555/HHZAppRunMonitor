@@ -13,19 +13,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITableView (HHZUtils_UITableView)
 /**
- *  绑定MCTableView的委托对象，并且初始化一些数据
+ *  绑定HHZTableView的委托对象，并且初始化一些数据
  *
  *  @param target 委托对象目标
  */
--(void)bindDelegateWithTarget_hhz:(id)target;
+-(void)hhz_bindDelegateWithTarget:(id)target;
 
 /**
  *  更新组件
  *
  *  @param block 要更新的操作
  */
--(void)updateComponentBlock_hhz:(void (^)(UITableView * tableView))block;
+-(void)hhz_updateComponentBlock:(void (^)(UITableView * tableView))block;
 
+#pragma mark SectionIndexView
+/**
+ *  设置SectionIndex视图背景透明
+ *
+ */
+-(void)hhz_clearSectionIndexViewBGColor;
+
+/**
+ *  设置SectionIndex视图背景透明并且设置文本颜色
+ *
+ */
+-(void)hhz_clearSectionIndexViewBGColorAndChangeTextColor:(UIColor *)textColor;
 
 
 

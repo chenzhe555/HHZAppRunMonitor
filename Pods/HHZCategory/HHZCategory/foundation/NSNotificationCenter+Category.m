@@ -8,15 +8,14 @@
 
 #import "NSNotificationCenter+Category.h"
 
-@implementation NSNotificationCenter (HHZUtils_OnMainThread)
+@implementation NSNotificationCenter (HHZ_OnMainThread)
 
--(void)postNotificationOnMainThreadWithName_hhz:(NSString *)name Object:(id)object UserInfo:(NSDictionary *)userInfo WaitUntilDone:(BOOL)wait
+-(void)hhz_postNotificationOnMainThreadWithName:(NSString *)name Object:(id)object UserInfo:(NSDictionary *)userInfo WaitUntilDone:(BOOL)wait
 {
-    //如果在主线程，则什么都不做
-    if ([NSThread mainThread]) return [self postNotificationName:name object:object userInfo:userInfo];
-    
     //校验参数
     if (!name) return;
+    //如果在主线程，则什么都不做
+    if ([NSThread mainThread]) return [self postNotificationName:name object:object userInfo:userInfo];
     
     NSMutableDictionary * dic = [NSMutableDictionary dictionaryWithCapacity:3];
     [dic setObject:name forKey:@"name"];

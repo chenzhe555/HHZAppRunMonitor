@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@interface UIImage (HHZUtils_ImageEffects)
+@interface UIImage (HHZ_ImageEffects)
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,25 +40,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark 获取bundle里面图片信息
-@interface UIImage (HHZUtils_Bundle)
+@interface UIImage (HHZ_Bundle)
 /**
  *  获取当前App的Icon图片Image对象
  *
  *  @return
  */
-+(UIImage *)getAppIcon_hhz;
++(UIImage *)hhz_getAppIcon;
 @end
 
 
 #pragma mark 对图片进行压缩大小，拉伸，离屏渲染等等操作
-@interface UIImage (HHZUtils_Transform)
+@interface UIImage (HHZ_Transform)
 
 /**
  *  压缩当前图片Image成指定大小Image
  *
  *  @param size 指定尺寸
  */
--(UIImage *)compressToSize_hhz:(CGSize)size;
+-(UIImage *)hhz_compressToSize:(CGSize)size;
 
 /**
  *  根据传入的图片最大宽高参数，计算出图片容器的Size
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return
  */
--(CGSize)getContainerSizeWithLimitWidth_hhz:(CGFloat)limitWidth andLimitHeight:(CGFloat)limitHeight;
+-(CGSize)hhz_getContainerSizeWithLimitWidth:(CGFloat)limitWidth limitHeight:(CGFloat)limitHeight;
 
 /**
  *  拉伸Image矩形范围内视图(仅拉伸区域内，类型QQ聊天框)
@@ -76,29 +76,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return
  */
--(UIImage *)resizeImageWithEdge_hhz:(UIEdgeInsets)edgeInset;
-
-/**
- *  传入颜色对象获取纯色Image对象
- *
- *  @param color 颜色值
- *
- *  @return
- */
-+(UIImage *)transformToPureImageWithColor_hhz:(UIColor *)color;
+-(UIImage *)hhz_resizeImageWithEdge:(UIEdgeInsets)edgeInset;
 
 
--(UIImage*)imageRotatedByDegrees_hhz:(CGFloat)degrees;
-
-/**
- *  设置Image的圆角，避免离屏渲染
- *
- *  @param radius 圆角
- *  @param size
- *
- *  @return
- */
--(UIImage * _Nullable)imageWithCornerRadius_hhz:(CGFloat)radius Size:(CGSize)size;
+-(UIImage*)hhz_imageRotatedByDegrees:(CGFloat)degrees;
 
 @end
 
@@ -111,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 
  */
--(nullable UIImage *)addWatermarkText_hhz:(NSString *)text Rect:(CGRect)rect;
+-(nullable UIImage *)hhz_addWatermarkText:(NSString *)text rect:(CGRect)rect;
 
 /**
  *  添加水印文字到图片上
@@ -122,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 
  */
--(nullable UIImage *)addWatermarkText_hhz:(NSString *)text Rect:(CGRect)rect Attribute:(nullable NSDictionary *)attribute;
+-(nullable UIImage *)hhz_addWatermarkText:(NSString *)text rect:(CGRect)rect attribute:(nullable NSDictionary *)attribute;
 
 /**
  *  添加水印图片
@@ -133,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return
  */
--(nullable UIImage *)addWatermarkImage_hhz:(UIImage *)image Rect:(CGRect)rect BGRect:(CGRect)bgRect;
+-(nullable UIImage *)hhz_addWatermarkImage:(UIImage *)image rect:(CGRect)rect BGRect:(CGRect)bgRect;
 
 /**
  *  合并两个图片
@@ -146,7 +127,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 
  */
-+(nullable UIImage *)mergeImage_hhz:(UIImage *)imageOne WithBImage:(UIImage *)imageTwo OneRect:(CGRect)oneRect TwoRect:(CGRect)twoRect BGRect:(CGRect)bgRect;
++(nullable UIImage *)hhz_mergeImage:(UIImage *)imageOne BImage:(UIImage *)imageTwo oneRect:(CGRect)oneRect twoRect:(CGRect)twoRect BGRect:(CGRect)bgRect;
 @end
 
+
+@interface UIImage (HHZ_Circle)
+
+/**
+ *  将图片转换为圆形图片
+ *
+ */
+-(UIImage *)hhz_drawCircleImage;
+
+/**
+ *  获取纯色的Image对象
+ *
+ *  @param rect Image尺寸
+ *  @param color Image颜色
+ *
+ */
++(UIImage *)hhz_gainPureColorImageRect:(CGRect)rect color:(UIColor *)color;
+
+@end
 NS_ASSUME_NONNULL_END

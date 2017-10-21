@@ -16,18 +16,30 @@
     self.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
--(void)bindDelegateWithTarget_hhz:(id)target
+-(void)hhz_bindDelegateWithTarget:(id)target
 {
     [self initializationData];
     self.dataSource = target;
     self.delegate = target;
 }
 
--(void)updateComponentBlock_hhz:(void (^)(UITableView * _Nonnull))block
+-(void)hhz_updateComponentBlock:(void (^)(UITableView * _Nonnull))block
 {
     [self beginUpdates];
     block(self);
     [self endUpdates];
+}
+
+-(void)hhz_clearSectionIndexViewBGColor
+{
+    self.sectionIndexBackgroundColor = [UIColor clearColor];
+    self.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
+}
+
+-(void)hhz_clearSectionIndexViewBGColorAndChangeTextColor:(UIColor *)textColor
+{
+    [self hhz_clearSectionIndexViewBGColor];
+    self.sectionIndexColor = textColor;
 }
 
 -(void)scrollToRow_hhz:(NSUInteger)row inSection:(NSUInteger)section atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated

@@ -9,9 +9,9 @@
 #import "NSString+HHZCategory.h"
 #import <objc/runtime.h>
 
-@implementation NSString (HHZUtils_AttributString)
+@implementation NSString (HHZ_AttributString)
 
--(NSMutableAttributedString *)addCustomAttributeFont_hhz:(UIFont *)font andColor:(UIColor *)color andRange:(NSRange)range
+-(NSMutableAttributedString *)hhz_addCustomAttributeFont:(UIFont *)font andColor:(UIColor *)color andRange:(NSRange)range
 {
     NSMutableAttributedString * attStr = [[NSMutableAttributedString alloc]initWithString:self];
     if (font)
@@ -25,7 +25,7 @@
     return attStr;
 }
 
--(NSMutableAttributedString *)addCustomAttributeFont_hhz:(UIFont *)font andColor:(UIColor *)color andText:(NSString *)searchText
+-(NSMutableAttributedString *)hhz_addCustomAttributeFont:(UIFont *)font andColor:(UIColor *)color andText:(NSString *)searchText
 {
     if ([self rangeOfString:searchText].location == NSNotFound)
     {
@@ -54,12 +54,12 @@
     return attStr;
 }
 
--(NSMutableAttributedString *)addLineAttributerWithTextWithColor_hhz:(UIColor *)color
+-(NSMutableAttributedString *)hhz_addLineAttributerWithTextWithColor:(UIColor *)color
 {
-    return [self addLineAttributerWithRange_hhz:NSMakeRange(0, self.length) andColor:color];
+    return [self hhz_addLineAttributerWithRange:NSMakeRange(0, self.length) andColor:color];
 }
 
--(NSMutableAttributedString *)addLineAttributerWithRange_hhz:(NSRange)range andColor:(UIColor *)color
+-(NSMutableAttributedString *)hhz_addLineAttributerWithRange:(NSRange)range andColor:(UIColor *)color
 {
     NSMutableAttributedString * str = [[NSMutableAttributedString alloc] initWithString:self];
     //加入下划线
@@ -74,9 +74,9 @@
 
 @end
 
-@implementation NSString (HHZUtils_ClassBuild)
+@implementation NSString (HHZ_ClassBuild)
 
--(Class)getObjClass_hhz
+-(Class)hhz_getObjClass
 {
     const char * className = [self cStringUsingEncoding:NSASCIIStringEncoding];
     Class objClass = objc_getClass(className);
@@ -92,14 +92,14 @@
 
 @end
 
-@implementation NSString (HHZUtils_Emoji)
+@implementation NSString (HHZ_Emoji)
 
--(BOOL)isIncludeEmoji:(EmojiType)type
+-(BOOL)hhz_isIncludeEmoji:(EmojiType)type
 {
     switch (type) {
         case EmojiTypeNormal:
         {
-            return [self isIncludeNormalEmoji];
+            return [self hhz_isIncludeNormalEmoji];
         }
             break;
             
@@ -108,11 +108,11 @@
     }
 }
 
--(BOOL)isIncludeNormalEmoji
+-(BOOL)hhz_isIncludeNormalEmoji
 {
     BOOL __block result = NO;
     [self enumerateSubstringsInRange:NSMakeRange(0, [self length]) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
-        if ([substring isNormalEmoji]) {
+        if ([substring hhz_isNormalEmoji]) {
             *stop = YES;
             result = YES;
         }
@@ -120,7 +120,7 @@
     return result;
 }
 
--(BOOL)isNormalEmoji
+-(BOOL)hhz_isNormalEmoji
 {
     const unichar hs = [self characterAtIndex:0];
     // surrogate pair
@@ -161,12 +161,12 @@
     return NO;
 }
 
--(instancetype)removedEmojiString:(EmojiType)type
+-(instancetype)hhz_removedEmojiString:(EmojiType)type
 {
     switch (type) {
         case EmojiTypeNormal:
         {
-            return [self removedNormalEmojiString];
+            return [self hhz_removedNormalEmojiString];
         }
             break;
             
@@ -175,14 +175,63 @@
     }
 }
 
--(instancetype)removedNormalEmojiString
+-(instancetype)hhz_removedNormalEmojiString
 {
     NSMutableString * __block buffer = [NSMutableString stringWithCapacity:[self length]];
     
     [self enumerateSubstringsInRange:NSMakeRange(0, [self length]) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString * _Nullable substring, NSRange substringRange, NSRange enclosingRange, BOOL * _Nonnull stop) {
-        [buffer appendString:([substring isNormalEmoji])? @"": substring];
+        [buffer appendString:([substring hhz_isNormalEmoji])? @"": substring];
     }];
     return buffer;
 }
 
 @end
+
+@implementation NSString (HHZ_Regular)
+
++(BOOL)hhz_isEmptyValue:(NSString *)value
+{
+    if ([value isKindOfClass:[NSNull class]])
+    {
+        return YES;
+    }
+    else if (value == nil)
+    {
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL)hhz_isEmptyOrAllSpace
+{
+    if (self.length > 0)
+    {
+        NSString * trimedString = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        if ([trimedString length] > 0) return false;
+    }
+    return true;
+}
+
+-(BOOL)hhz_matchingWithMatchingStringWithRegularExpression:(NSString *)expression
+{
+    NSPredicate * regularPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", expression];
+    return [regularPredicate evaluateWithObject:self];
+}
+
+-(BOOL)hhz_matchingPhoneNumber
+{
+    return [self hhz_matchingWithMatchingStringWithRegularExpression:@"^1[3-8]\\d{9}$"];
+}
+
+-(BOOL)hhz_matchingEmailNumber
+{
+    return [self hhz_matchingWithMatchingStringWithRegularExpression:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"];
+}
+
+-(BOOL)hhz_matchingIdentityCard
+{
+    return [self hhz_matchingWithMatchingStringWithRegularExpression:@"^(\\d{14}|\\d{17})(\\d|[xX])$"];
+}
+
+@end
+

@@ -8,7 +8,7 @@
 
 #import "NSNumber+HHZCategory.h"
 
-@implementation NSNumber (HHZUtils_AddMethod)
+@implementation NSNumber (HHZ_MessageForward)
 
 -(NSInteger)length
 {

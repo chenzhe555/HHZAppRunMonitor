@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSNotificationCenter (HHZUtils_OnMainThread)
+@interface NSNotificationCenter (HHZ_OnMainThread)
 /**
  *  在主线程上发送通知
  *
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param userInfo 带的信息
  *  @param wait     是否等待
  */
--(void)postNotificationOnMainThreadWithName_hhz:(NSString *)name Object:(nullable id)object UserInfo:(nullable NSDictionary *)userInfo WaitUntilDone:(BOOL)wait;
+-(void)hhz_postNotificationOnMainThreadWithName:(NSString *)name Object:(nullable id)object UserInfo:(nullable NSDictionary *)userInfo WaitUntilDone:(BOOL)wait;
 
 @end
 

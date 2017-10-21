@@ -10,7 +10,7 @@
 #import <float.h>
 @import Accelerate;
 
-@implementation UIImage (HHZUtils_ImageEffects)
+@implementation UIImage (HHZ_ImageEffects)
 
 #pragma mark 如果是ios8以上，用系统自带方法
 //UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
@@ -386,9 +386,9 @@
 
 
 
-@implementation UIImage (HHZUtils_Bundle)
+@implementation UIImage (HHZ_Bundle)
 
-+(UIImage *)getAppIcon_hhz
++(UIImage *)hhz_getAppIcon
 {
     return [[UIImage alloc] initWithContentsOfFile:[self getAppIconPath_hhz]];
 }
@@ -405,9 +405,9 @@
 
 
 
-@implementation UIImage (HHZUtils_Transform)
+@implementation UIImage (HHZ_Transform)
 
--(UIImage *)compressToSize_hhz:(CGSize)size
+-(UIImage *)hhz_compressToSize:(CGSize)size
 {
     UIGraphicsBeginImageContext(size);
     CGRect rect = {{0,0}, size};
@@ -417,7 +417,7 @@
     return compressedImg;
 }
 
--(CGSize)getContainerSizeWithLimitWidth_hhz:(CGFloat)limitWidth andLimitHeight:(CGFloat)limitHeight
+-(CGSize)hhz_getContainerSizeWithLimitWidth:(CGFloat)limitWidth limitHeight:(CGFloat)limitHeight
 {
     CGSize newSize;
     CGFloat width1 = self.size.width;
@@ -440,24 +440,12 @@
     return newSize;
 }
 
--(UIImage *)resizeImageWithEdge_hhz:(UIEdgeInsets)edgeInset
+-(UIImage *)hhz_resizeImageWithEdge:(UIEdgeInsets)edgeInset
 {
     return [self resizableImageWithCapInsets:edgeInset resizingMode:UIImageResizingModeTile];
 }
 
-+(UIImage *)transformToPureImageWithColor_hhz:(UIColor *)color
-{
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, color.CGColor);
-    CGContextFillRect(context, rect);
-    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
--(UIImage*)imageRotatedByDegrees_hhz:(CGFloat)degrees
+-(UIImage*)hhz_imageRotatedByDegrees:(CGFloat)degrees
 {
     CGFloat width = CGImageGetWidth(self.CGImage);
     CGFloat height = CGImageGetHeight(self.CGImage);
@@ -479,35 +467,20 @@
     return newImage;
 }
 
--(UIImage *)imageWithCornerRadius_hhz:(CGFloat)radius Size:(CGSize)size
-{
-    if (size.width == 0 && size.height == 0) return nil;
-    
-    CGRect rect = (CGRect){0,0,size};
-    CGContextRef ref = UIGraphicsGetCurrentContext();
-    
-    UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
-    CGContextAddPath(ref, [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:radius].CGPath);
-    CGContextClip(ref);
-    [self drawInRect:rect];
-    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return img;
-}
 
 @end
 
 @implementation UIImage (HHZ_Watermark)
 
--(UIImage *)addWatermarkText_hhz:(NSString *)text Rect:(CGRect)rect
+-(UIImage *)hhz_addWatermarkText:(NSString *)text rect:(CGRect)rect
 {
     NSDictionary * dic = @{NSFontAttributeName :[UIFont systemFontOfSize:40],
                            NSForegroundColorAttributeName : [UIColor blackColor]};
     
-    return [self addWatermarkText_hhz:text Rect:rect Attribute:dic];
+    return [self hhz_addWatermarkText:text rect:rect attribute:dic];
 }
 
--(UIImage *)addWatermarkText_hhz:(NSString *)text Rect:(CGRect)rect Attribute:(NSDictionary *)attribute
+-(UIImage *)hhz_addWatermarkText:(NSString *)text rect:(CGRect)rect attribute:(NSDictionary *)attribute
 {
     if (!text) return nil;
     
@@ -524,12 +497,12 @@
     return image;
 }
 
--(UIImage *)addWatermarkImage_hhz:(UIImage *)image Rect:(CGRect)rect BGRect:(CGRect)bgRect
+-(UIImage *)hhz_addWatermarkImage:(UIImage *)image rect:(CGRect)rect BGRect:(CGRect)bgRect
 {
-    return [UIImage mergeImage_hhz:self WithBImage:image OneRect:bgRect TwoRect:rect BGRect:bgRect];
+    return [UIImage hhz_mergeImage:self BImage:image oneRect:bgRect twoRect:rect BGRect:bgRect];
 }
 
-+(UIImage *)mergeImage_hhz:(UIImage *)imageOne WithBImage:(UIImage *)imageTwo OneRect:(CGRect)oneRect TwoRect:(CGRect)twoRect BGRect:(CGRect)bgRect
++(UIImage *)hhz_mergeImage:(UIImage *)imageOne BImage:(UIImage *)imageTwo oneRect:(CGRect)oneRect twoRect:(CGRect)twoRect BGRect:(CGRect)bgRect
 {
     if (!imageOne || !imageTwo) return nil;
     CGFloat scale = [UIScreen mainScreen].scale;
@@ -550,6 +523,34 @@
 +(CGRect)getDrawRealRect:(CGRect)rect Scale:(CGFloat)scale
 {
     return CGRectMake(rect.origin.x * scale, rect.origin.y * scale, rect.size.width * scale, rect.size.height * scale);
+}
+
+@end
+
+@implementation UIImage (HHZ_Circle)
+
+-(UIImage *)hhz_drawCircleImage
+{
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.width);
+    
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, [UIScreen mainScreen].scale);
+    [[UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:rect.size.width/2] addClip];
+    [self drawInRect:rect];
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
+}
+
++(UIImage *)hhz_gainPureColorImageRect:(CGRect)rect color:(UIColor *)color
+{
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rect);
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 @end

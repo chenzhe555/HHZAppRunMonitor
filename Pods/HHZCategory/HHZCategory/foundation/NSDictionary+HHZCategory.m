@@ -10,14 +10,14 @@
 
 #pragma mark ----------->NSDictionary
 
-@implementation NSDictionary (HHZUtils_NSDictionary)
+@implementation NSDictionary (HHZ_Log)
 
 -(NSString *)descriptionWithLocale:(id)locale
 {
-    NSMutableString * mutaStr = [NSMutableString stringWithString:@"{\n"];
+    NSMutableString * mutaStr = [NSMutableString stringWithString:[NSString stringWithFormat:@"\n %p {\n",self]];
     
     [self enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        [mutaStr appendFormat:@"\t%@ = %@;\n", key, obj];
+        [mutaStr appendFormat:@"%@(%@) = \n\t\t\t%@;\n" ,key,[obj class], obj];
     }];
     
     [mutaStr appendString:@"}\n"];
@@ -25,22 +25,11 @@
     return mutaStr;
 }
 
--(NSArray *)allSortedKeys_hhz
+-(NSArray *)hhz_allSortedKeys
 {
     return [[self allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
--(NSString *)getStringValueForKey_hhz:(NSString *)key DefaultString:(NSString *)defString
-{
-    if (!key) return defString;
-    id value = self[key];
-    
-    if (!value || value == [NSNull null]) return defString;
-    if ([value isKindOfClass:[NSNumber class]]) return ((NSNumber *)value).description;
-    if ([value isKindOfClass:[NSString class]]) return value;
-    
-    return defString;
-}
 @end
 
 
@@ -48,19 +37,20 @@
 
 
 #pragma mark ----------->NSMutableDictionary
-@implementation NSMutableDictionary (HHZUtils_NSMutableDictionary)
+@implementation NSMutableDictionary (HHZ_Insert)
 
--(void)setObject_hhz:(id)aObject Key:(id<NSCopying>)aKey
+-(void)hhz_setObject:(id)aObject key:(id<NSCopying>)aKey
 {
-    if (!aKey) return;
-    
-    if (aObject)
+    if (aKey)
     {
-        [self setObject:aObject forKey:aKey];
-    }
-    else
-    {
-        if (!aObject) [self setObject:[NSNull null] forKey:aKey];
+        if (aObject)
+        {
+            [self setObject:aObject forKey:aKey];
+        }
+        else
+        {
+            [self setObject:[NSNull null] forKey:aKey];
+        }
     }
 }
 

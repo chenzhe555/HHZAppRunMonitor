@@ -11,25 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark 检查数据是否正确，不是的话初始化，多用于网络请求回来进行判断
-@interface NSObject (HHZUtils_CheckObj)
-
-/**
- *  用于检测当前对象是否是NSArray，如果不是则初始化一个空NSArray返回
- *
- *  @return 返回数组
- */
--(NSArray *)checkArray_hhz;
-
-/**
- *  用于检测当前对象是否是NSDictionary，如果不是则初始化一个空NSDictionary返回
- *
- *  @return 返回字典
- */
--(NSDictionary *)checkDictionary_hhz;
-
-@end
-
 #pragma mark 运行时获取相关信息
 @interface NSObject (HHZUtils_RunTime)
 /**
@@ -37,21 +18,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return
  */
--(NSArray *)getPrivateApiMethod_hhz;
+-(NSArray *)hhz_getPrivateApiMethod;
 
 /**
  *  通过运行时机制获取当前对象的属性名数组
  *
  *  @return
  */
--(NSArray *)getPrivateApiProperty_hhz;
+-(NSArray *)hhz_getPrivateApiProperty;
 
 /**
  *  通过运行时机制获取当前对象的属性名以及数据类型数组,index为0为属性名数组，index1为类型数组
  *
  *  @return
  */
--(NSArray *)getPrivateApiPropertyAndPropertyType_hhz;
+-(NSArray *)hhz_getPrivateApiPropertyAndPropertyType;
 
 @end
 
@@ -83,7 +64,7 @@ return self; \
 [self encode_hhz:encoder]; \
 }
 
-@interface NSObject (HHZUtils_Archive)
+@interface NSObject (HHZ_Archive)
 /**
  *   添加忽略归档的成员变量
  *
@@ -108,7 +89,7 @@ return self; \
 @end
 
 
-@interface NSObject (HHZUtils_KVO)
+@interface NSObject (HHZ_KVO)
 
 /**
  *  对属性进行监听

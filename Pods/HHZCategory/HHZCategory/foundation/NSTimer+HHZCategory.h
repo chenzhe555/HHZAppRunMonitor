@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 时间对象
  */
-+(NSTimer *)scheduledTimerWithTimeInterval_hhz:(NSTimeInterval)interval repeats:(BOOL)repeats Block:(void (^)(NSTimer * timer))block;
++(NSTimer *)hhz_scheduledTimerWithTimeInterval:(NSTimeInterval)interval repeats:(BOOL)repeats Block:(void (^)(NSTimer * timer))block;
 
 @end
 

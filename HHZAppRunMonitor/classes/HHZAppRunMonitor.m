@@ -126,7 +126,7 @@
 -(void)createTimer
 {
     __weak typeof(self) weakSelf = self;
-    _timer = [NSTimer scheduledTimerWithTimeInterval_hhz:1.2f repeats:YES Block:^(NSTimer * _Nonnull timer) {
+    _timer = [NSTimer hhz_scheduledTimerWithTimeInterval:1.2f repeats:YES Block:^(NSTimer * _Nonnull timer) {
         __strong typeof(weakSelf) self = weakSelf;
         [self runTimer];
     }];

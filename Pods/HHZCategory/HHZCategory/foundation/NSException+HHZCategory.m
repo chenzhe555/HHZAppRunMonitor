@@ -9,9 +9,9 @@
 #import "NSException+HHZCategory.h"
 #include <execinfo.h>
 
-@implementation NSException (HHZUtils_Trace)
+@implementation NSException (HHZ_Trace)
 
-- (NSArray *)backtrace_hhz
+- (NSArray *)hhz_backtrace
 {
     NSArray *addresses = self.callStackReturnAddresses;
     unsigned count = (int)addresses.count;

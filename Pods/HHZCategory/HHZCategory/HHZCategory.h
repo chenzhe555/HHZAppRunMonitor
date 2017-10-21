@@ -28,4 +28,5 @@
 #import "UIScreen+Category.h"
 #import "UITableView+HHZCategory.h"
 #import "UIView+HHZCategory.h"
+#import "UISearchBar+HHZCategory.h"
 
